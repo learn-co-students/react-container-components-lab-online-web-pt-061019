@@ -29,14 +29,12 @@ class SearchableMovieReviewsContainer extends Component{
   handleOnChange = (e)=>{
     console.log(e.target.value)
     this.setState({
-      
       searchTerm: e.target.value
     })
   }
-  render(){
   
+  render(){
     return (
-     
       <div className="searchable-movie-reviews">
         <form onSubmit={this.submitEvent}> 
           <input type="text" onChange={this.handleOnChange}/>

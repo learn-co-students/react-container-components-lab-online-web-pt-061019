@@ -12,7 +12,7 @@ MovieReviews.defaultProps ={
 }
 
 const Review = ({title, headline}) =>(
-  <div className="review">
+  <div className="review" key={headline}>
     <h3>{title}</h3>
     <p>{headline}</p>
   </div>
