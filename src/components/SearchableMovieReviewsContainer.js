@@ -26,18 +26,25 @@ class SearchableMovieReviewsContainer extends Component{
     .then(resp => resp.json())
     .then(resp => this.setState({reviews: resp.results}))
   }
-  handleOnChange = (e)=>{
-    console.log(e.target.value)
+
+  // handleChange = (e)=>{
+  //   console.log(e.target.value)
+  //   this.setState({
+  //     searchTerm: e.target.value
+  //   })
+  // }
+
+  handleChange = e => {
     this.setState({
-      searchTerm: e.target.value
+      [e.target.name]: e.target.value
     })
   }
-  
+
   render(){
     return (
       <div className="searchable-movie-reviews">
         <form onSubmit={this.submitEvent}> 
-          <input type="text" onChange={this.handleOnChange}/>
+          <input type="text" name="movieName" onChange={this.handleChange}/>
           <input type="submit" />
         </form>
         <h3>The Searched Movie Reviews:</h3>
