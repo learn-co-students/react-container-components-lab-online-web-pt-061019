@@ -20,23 +20,16 @@ class SearchableMovieReviewsContainer extends Component{
   submitEvent= e => {
     e.preventDefault()
     let query = '&query='+ this.state.searchTerm
-    console.log(URL.concat(this.state.searchTerm))
+    console.log(URL.concat(query))
     // fetch(URL.concat(this.state.searchTerm))
     fetch(URL.concat(query))
     .then(resp => resp.json())
     .then(resp => this.setState({reviews: resp.results}))
   }
 
-  // handleChange = (e)=>{
-  //   console.log(e.target.value)
-  //   this.setState({
-  //     searchTerm: e.target.value
-  //   })
-  // }
-
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
+  handleChange = (e)=>{
+     this.setState({
+      searchTerm: e.target.value
     })
   }
 
@@ -44,7 +37,8 @@ class SearchableMovieReviewsContainer extends Component{
     return (
       <div className="searchable-movie-reviews">
         <form onSubmit={this.submitEvent}> 
-          <input type="text" name="movieName" onChange={this.handleChange}/>
+          <input type="text" name="movieName" onChange={this.handleChange}
+        />
           <input type="submit" />
         </form>
         <h3>The Searched Movie Reviews:</h3>
