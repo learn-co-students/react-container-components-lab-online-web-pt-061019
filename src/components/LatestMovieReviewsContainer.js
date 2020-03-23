@@ -17,9 +17,9 @@ class LatestMovieReviewsContainer extends Component {
     }
 
     fetchReviews = () => {
-        fetch(url)
+        fetch(URL)
         .then(res => res.json())
-        .then(data => this.setState({ reviews: reviews.results }))
+        .then(reviews => this.setState({ reviews: reviews.results }))
     }
 
     componentDidMount(){
@@ -27,8 +27,12 @@ class LatestMovieReviewsContainer extends Component {
     }
 
     render() {
-        return <MovieReviews reviews={this.state.reviews} />
-    }
+        return (
+        <div className="latest-movie-reviews">
+        <h4>Latest Movie Reviews</h4>
+        <MovieReviews reviews={this.state.reviews} />
+        </div>
+    )}
 }
 
 export default LatestMovieReviewsContainer
