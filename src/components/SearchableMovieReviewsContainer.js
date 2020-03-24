@@ -12,19 +12,19 @@ export default class SearchableMovieReviewsContainer extends Component {
 
         this.state = {
             reviews: [],
-            query: ""
+            searchTerm: ""
         }
     }
 
     handleInput = (e) => {
         this.setState({
-            query: e.target.value
+            searchTerm: e.target.value
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        const queryURL = URL + this.state.query        
+        const queryURL = URL + this.state.searchTerm        
         fetch(queryURL)
             .then(response => response.json())
             .then(reviewData => this.setState({ reviews: reviewData.results }))

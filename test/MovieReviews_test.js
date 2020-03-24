@@ -3,8 +3,8 @@ import { expect } from 'chai';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MovieReviews from '../src/components/MovieReviews';
-import Review from '..src/components/Review';
 import testReviews from './test-reviews';
+import Review from '../src/components/Review';
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -43,6 +43,6 @@ describe('<MovieReviews />', () => {
   });
 
   it('should render all the reviews', () => {
-    expect(wrapper.find('.review').length).to.equal(testReviews.length);
+    expect(wrapper.find(Review).length).to.equal(testReviews.length);
   });
 });
