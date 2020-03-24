@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MovieReviews from '../src/components/MovieReviews';
+import Review from '..src/components/Review';
 import testReviews from './test-reviews';
 
 Enzyme.configure({ adapter: new Adapter() })
