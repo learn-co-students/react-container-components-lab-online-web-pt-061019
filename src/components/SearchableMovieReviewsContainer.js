@@ -67,7 +67,7 @@ export default class LatestMovieReviewsContainer extends Component {
       <form className="SearchableMovieReviewsContainer" onSubmit={this.handleSubmit}>
         <input type="text" placeholder="Enter a search query" value={this.state.query} onChange={this.handleSearch} />
 
-        <MovieReviews reviews={this.state.reviews} />
+        <MovieReviews reviews={this.state.reviews} /> // I keep forgetting to pass the state or props to the child component
       </form>
     )
   }
